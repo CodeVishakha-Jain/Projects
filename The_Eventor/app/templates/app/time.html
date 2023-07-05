@@ -1,0 +1,16 @@
+{% extends 'app/base.html' %}
+{%load static%}
+{%block content%}
+<form action="{% url 'timecalculate' %}" method="post">
+  {% csrf_token %}
+  <h4 style="margin-left:108px;">TIME CALCULATOR</h4>
+  <div class="container">
+    <hr>
+    <label for="uname"><b>Enter your event date</b></label>
+    <input type="date" placeholder="Enter event date" name="date" required="" id="date1">
+        
+    <button type="submit">Calculate</button>
+    <hr>
+  </div>
+</form>
+{% endblock %}

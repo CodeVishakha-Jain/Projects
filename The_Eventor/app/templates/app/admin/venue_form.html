@@ -1,0 +1,33 @@
+{% extends 'app/admin/base1.html' %}
+{% load static %}
+{% block content %}
+    <div>
+    <center>
+        <h1>image uploading form</h1>
+        <form action="{% url 'venue_upload' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table>
+                {%if key1 %}
+                <input type="hidden" value="{{key1.id}}" name="id">
+                {% else %}
+                <input type="hidden" value="1000000" name="id">
+                {% endif %}
+                <tr>
+                    <td>upload image of venue:</td>
+                    <td><input type="file" name="image" id="" value={{key1.venue_pic}}></td>
+                </tr>
+                <tr>
+                    <td>venue details:</td>
+                    <td><textarea name="venue_details">
+                        {{key1.venue_description}}
+                        </textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:center;"><input type="submit" value="upload"></td>
+                </tr>
+            </table>
+        </form>
+    </center>
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'app/base.html' %}
+{%load static%}
+{%block content%}
+<form action="{% url 'budgetstore' %}" method="post">
+  {% csrf_token %}
+  <h4 style="margin-left:108px;">BUDGET PLANNER</h4>
+  <div class="container">
+    <label for="uname"><b>Enter your maximum budget</b></label>
+    <input type="text" placeholder="Enter budget" name="budget" required="">
+        
+    <button type="submit">Enter</button>
+    <hr>
+  </div>
+</form>
+{% endblock %}

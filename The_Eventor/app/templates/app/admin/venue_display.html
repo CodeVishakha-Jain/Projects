@@ -1,0 +1,61 @@
+
+{% extends "app/admin/base1.html" %}
+{% load static %}
+{% block content %}
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <form action="{% url 'venueinsert' %}" method="post" style="margin:30px 0px 0px 1200px;">
+                        {% csrf_token %}
+                        <input type="submit" value="ADD" style="color:white;background-color:rgb(25, 58, 244);">
+                    </form>
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Venues</h1>
+
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Venue Pic</th>
+                                            <th>Venue Description</th>
+                                            <th>Venue Update</th>
+                                            <th>Venue Delete</th>
+                                        </tr>
+                                    </thead>
+                                    {% if key1 %}
+                                    <tbody>
+                                        {% for i in key1 %}
+                                        <tr>
+                                            <td><img src="{{MEDIA_URL}}{{i.venue_pic.url}}" alt="" style="height:70px;width:70px;"></td>
+                                            <td>{{i.venue_description}}</td>
+                                            <td>
+                                                <form action="{% url 'venue_update' pk=i.id %}" method="post">
+                                                {% csrf_token %}
+                                                <input type="submit" value="UPDATE" style="color:white;background-color:rgb(25, 58, 244);">
+                                                 </form>
+                                            </td>
+                                            <td>
+                                                <form action="{% url 'venue_delete' pk=i.id %}" method="post">
+                                                {% csrf_token %}
+                                                <input type="submit" value="DELETE" style="color:white;background-color:rgb(25, 58, 244);">
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        {% endfor%}
+                                    </tbody>
+                                    {% endif %}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+{% endblock %}
+         

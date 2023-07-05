@@ -1,0 +1,27 @@
+{% extends 'app/base.html' %}
+{%load static%}
+{%block content%}
+<form action="" method="post">
+  <h4 style="margin-left:108px;">VENUES</h4>
+  <div class="container">
+    {% if venues %}
+    <table style="width:100%;text-align: left;" border="1" cellpadding="10">
+      {% for i in venues %}
+        <tr style="border-bottom: 1px solid;background-color:white;">
+            <td style="border-right:1px solid;height:120px;width:140px;">
+                <div style="display:inline-block;">
+                    <img src="{{MEDIA_URL}}{{i.venue_pic.url}}" class="avatar" style="height:100px;width:100px;">
+                </div>
+            </td>
+            <td>
+                <p>
+                    {{i.venue_description}}
+                </p>
+            </td>
+        </tr>
+      {% endfor%}
+    </table>
+    {% endif %}
+  </div>
+</form>
+{% endblock %}

@@ -1,0 +1,61 @@
+
+{% extends "app/admin/base1.html" %}
+{% load static %}
+{% block content %}
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <form action="{% url 'expertinsert' %}" method="post" style="margin:30px 0px 0px 1200px;">
+                        {% csrf_token %}
+                        <input type="submit" value="ADD" style="color:white;background-color:rgb(25, 58, 244);">
+                    </form>
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Experts</h1>
+
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Expert Name</th>
+                                            <th>Expert Details</th>
+                                            <th>Expert Update</th>
+                                            <th>Expert Delete</th>
+                                        </tr>
+                                    </thead>
+                                    {% if key1 %}
+                                    <tbody>
+                                        {% for i in key1 %}
+                                        <tr>
+                                            <td>{{i.expert_name}}</td>
+                                            <td>{{i.expert_details}}</td>
+                                            <td>
+                                                <form action="{% url 'expert_update' pk=i.id %}" method="post">
+                                                {% csrf_token %}
+                                                <input type="submit" value="UPDATE" style="color:white;background-color:rgb(25, 58, 244);">
+                                                 </form>
+                                            </td>
+                                            <td>
+                                                <form action="{% url 'expert_delete' pk=i.id %}" method="post">
+                                                {% csrf_token %}
+                                                <input type="submit" value="DELETE" style="color:white;background-color:rgb(25, 58, 244);">
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        {% endfor%}
+                                    </tbody>
+                                    {% endif %}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+{% endblock %}
+         

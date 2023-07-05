@@ -1,0 +1,29 @@
+{% extends 'app/base.html' %}
+{%load static %}
+{% block content %}
+<div style="background-color:white;margin:0px 20px;padding:20px;">
+        <table cellpadding="20" cellspacing="30" style="text-align:center;height:100%;width:100%;">
+            <h5 style="margin-left:500px;font-family:cursive;">USER PROFILE</h5>
+            <tr style="border-bottom:1px solid;border-top:1px solid;">
+                <th>Username</th>
+                <td>{{user.username}}</td>
+            </tr>
+            <tr style="border-bottom:1px solid;">
+                <th>Email</th>
+                <td>{{user.email}}</td>
+            </tr>
+            <tr style="border-bottom:1px solid;">
+                <th>Is_Created</th>
+                <td>{{user.is_created}}</td>
+            </tr>
+            <tr style="border-bottom:1px solid;">
+                <th>Budget</th>
+                <td>{{user.budget}}</td>
+            </tr>
+            <tr style="border-bottom:1px solid;">
+                <th>Event Date</th>
+                <td>{{user.time}}</td>
+            </tr>
+        </table>
+</div>
+{% endblock %}

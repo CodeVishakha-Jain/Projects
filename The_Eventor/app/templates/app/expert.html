@@ -1,0 +1,22 @@
+{% extends 'app/base.html' %}
+{%load static%}
+{%block content%}
+  <h4 style="margin-left:120px;">EXPERTS</h4>
+  <div class="container">
+    {% if experts %}
+    <table border="1" style="background-color:white;width:100%;">
+        {%for i in experts %}
+        <tr style="border-bottom:1px solid">
+            <td style="padding-left:20px;padding-top:10px;">
+                <h5>
+                   {{i.expert_name}}
+                </h5>
+                <p> 
+                    {{i.expert_details}}
+                </p>
+            </td>
+        </tr>
+        {% endfor%}
+    </table>
+    {% endif %}
+{% endblock %}

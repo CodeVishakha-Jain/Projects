@@ -1,0 +1,373 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lilita+One&family=Nanum+Myeongjo:wght@700&family=Righteous&family=Roboto:wght@300&family=Satisfy&display=swap');
+        *
+        {
+          color:#613F75;
+        }
+        body
+        {
+            background-color: #ffc7c7;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .navbar ul {
+            list-style-type: none;
+        }
+        .navbar li {
+            display: inline-block;
+        }
+        #logo:hover
+        {
+            background:white;
+        }
+        .navbar a {
+            display: block;
+            padding:12px;
+            color:#613F75;
+            text-decoration: none;
+            font-size: 13px;
+            cursor: pointer;
+            font-weight:bold;
+            font-family: 'Roboto', sans-serif;
+        }
+        .navbar a:hover {
+            background-color: rgb(243, 4, 123);
+            color:white;
+        }
+        img.avatar {
+            width: 10%;
+            border-radius: 50%;
+            border-color: #000000;
+            height: 10%;
+        }
+        .imgcontainer {
+            display: inline-block;
+            /* border: 2px solid red; */
+            position: absolute;
+            left: 60px;
+            top: 20px;
+        }
+        #maincont{
+        padding:40px;
+        text-align: center;
+        background-color:none;
+        }
+        #maincont p{
+            font-size: large;
+        }
+        .icon
+        {
+            color:black;
+        } 
+          input[type=text], input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+          }
+          
+          button {
+            background-color: #000000;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+          }
+          
+          button:hover {
+            opacity: 0.8;
+          }
+          
+          .cancelbtn {
+            width: 100%;
+            padding: 10px 18px;
+            background-color: #000000;
+          }
+          span.psw {
+            float: right;
+            padding-top: 16px;
+          }
+          
+          /* Change styles for span and cancel button on extra small screens */
+          @media screen and (max-width: 300px) {
+            span.psw {
+               display: block;
+               float: none;
+            }
+            .cancelbtn {
+               width: 100%;
+            }
+          }
+        /* Style the "Add" button */
+        .addBtn {
+            padding: 10px;
+            width: 25%;
+            background: #090909;
+            color: #ffffff;
+            float: left;
+            text-align: center;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            border-radius: 0;
+        }
+      .addBtn:hover {
+        background-color: #bbb;
+    }
+      #myInput {
+        margin: 0;
+        border: none;
+        border-radius: 0;
+        width: 75%;
+        padding: 10px;
+        float: left;
+        font-size: 16px;
+    }
+    /* Style the list items */
+  .to_do li,.guests li {
+    cursor: pointer;
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    list-style-type: none;
+    background: #eee;
+    font-size: 18px;
+    transition: 0.2s;
+
+    /* make the list items unselectable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Set all odd list items to a different color (zebra-stripes) */
+.to_do li:nth-child(odd),.guests li:nth-child(odd) {
+  background: #f9f9f9;
+}
+
+/* Darker background-color on hover */
+.to_do li:hover,.guests li:hover {
+  background: #ddd;
+}
+
+/* When clicked on, add a background color and strike out text */
+.to_do li.checked,.guests li.checked{
+   background: #888;
+    color: #fff;
+    text-decoration: line-through !important;
+}
+/* Add a "checked" mark when clicked on */
+.to_do li.checked::before,.guests li.checked::before{
+  content: '';
+  position: absolute;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
+    .header {
+      background-color: #ffc7c7;
+      padding: 30px 40px;
+      color: rgb(0, 0, 0);
+      text-align: center;
+    }
+    .header:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    /* Set a style for the submit/register button */
+      .registerbtn {
+            background-color: #000000;
+            color: white;
+            padding: 16px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+
+        .registerbtn:hover {
+            opacity: 1;
+        }
+        /* Set a grey background color and center the text of the "sign in" section */
+        .signin {
+            background-color: #f1f1f1;
+            text-align: center;
+        }
+
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+        }
+
+        img.avatar {
+            width: 7%;
+            border-radius: 50%;
+            border-color: #000000;
+            height: 7%;
+        }
+        /* Style the close button */
+        .close {
+            position: absolute;
+            right: 0;
+            top: 0;
+            padding: 12px 16px 12px 16px;
+        }
+
+        .close:hover {
+            background-color: #000000;
+            color: white;
+        }
+
+        
+  </style>
+</head>
+<body>
+  <!--header-->
+    <header style="margin-bottom:28px;">
+        <nav class="navbar" style="height:61px;">
+            <ul>
+                <li style="width:150px;margin:0 100px 0 0;"><a href="{% url 'homepage' %}" id="logo" style="color:#613F75;font-size:23px;font-weight:bold;padding:6px 0; font-family: 'Roboto', sans-serif;
+                    font-family: 'Satisfy', cursive;"><img src="{% static '/images/eventerlogo.jpg/'%}" class="avatar" style="height:35px;width:40px;padding-right:5px;">The  Eventor</a></li>
+                <li><a href="{% url 'venuespage' %}">VENUES</a></li>
+                <li><a href="{% url 'guestspage' %}">GUESTS</a></li>
+                <li><a href="{% url 'budget' %}">BUDGET PLANNER</a></li>
+                <li><a href="{% url 'time' %}">TIME CALCULATOR</a></li>
+                <li><a href="{% url 'todo_list' %}">TO-DO</a></li>
+                <li><a href="{% url 'expert' %}">EXPERTS</a></li>
+                <li>
+                  {%if request.session.user %}
+                  <li class="nav-item dropdown no-arrow" style="margin-left:480px;margin-top:20px;">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="mr-2 d-none d-lg-inline text-gray-600 " style="font-size:14px;">{{request.session.user}}</span>
+                    </a>
+                    <!-- Dropdown - User Information -->
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="{% url 'profilepage' pk=request.session.id %}">
+                            <i class="fa fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Profile
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{% url 'userlogout' %}">
+                            <i class="fa fa-sign-out fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Logout
+                        </a>
+                    </div>
+                </li>
+                  {% else %}
+                  <a href="{% url 'registerpage' %}" style="margin-left:480px;margin-top:20px;">LOGIN/REGISTER </a>
+                  {% endif%}
+                 </li>
+            </ul>
+        </nav>
+    </header>
+    <!--header-->
+    <hr>
+    {%block content%}
+    {% endblock %}
+    <hr>
+    <!-- Footer -->
+    <footer class="text-center text-lg-start ">    
+        <!-- Section: Links  -->
+        <section>
+          <div class="container text-center text-md-start mt-5">
+            <!-- Grid row -->
+            <div class="row mt-3">
+              <!-- Grid column -->
+              <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                <!-- Content -->
+                <h6 class="text-uppercase fw-bold mb-4">
+                  <i class="fa fa-gem me-3"></i>The Eventor
+                </h6>
+                <p>
+                    This website is used for planning events according to the user's needs.<br>This website is useful for planning different events like birthday party,wedding,etc..
+                </p>
+              </div>
+              <!-- Grid column -->
+      
+              <!-- Grid column -->
+              <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4" >
+                <!-- Links -->
+                <h6 class="text-uppercase fw-bold mb-4">
+                  Events
+                </h6>
+                <p>
+                  <a href="#!" class="text-reset"style="text-decoration:none;">Birthday</a>
+                </p>
+                <p>
+                  <a href="#!" class="text-reset"style="text-decoration:none;">DJ night</a>
+                </p>
+                <p>
+                  <a href="#!" class="text-reset"style="text-decoration:none;">Wedding</a>
+                </p>
+              </div>
+              <!-- Grid column -->
+      
+              <!-- Grid column -->
+              <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                <!-- Links -->
+                <h6 class="text-uppercase fw-bold mb-4">
+                  Useful links
+                </h6>
+                <p>
+                  <a href="{% url 'homepage' %}" class="text-reset">Home</a>
+                </p>
+                <p>
+                  <a href="{% url 'venuespage' %}" class="text-reset">Venues</a>
+                </p>
+                <p>
+                  <a href="{% url 'guestspage' %}" class="text-reset">Guests</a>
+                </p>
+                <p>
+                  <a href="{% url 'expert' %}" class="text-reset">Experts</a>
+                </p>
+              </div>
+              <!-- Grid column -->
+      
+              <!-- Grid column -->
+              <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                <!-- Links -->
+                <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+                <p><i class="fa fa-home me-3"></i> Ahmedabad,380008</p>
+                <p>
+                  <i class="fa fa-envelope me-3"></i>
+                  info@example.com
+                </p>
+                <p><i class="fa fa-phone me-3"></i> + 9898998989</p>
+                <p><i class="fa fa-print me-3"></i> + 9898998980</p>
+              </div>
+              <!-- Grid column -->
+            </div>
+            <!-- Grid row -->
+          </div>
+        </section>
+        <!-- Section: Links  -->
+      </footer>
+      <!-- Footer -->
+      <script src="{% static '/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+      
+    </body>
+    </html>
